@@ -90,13 +90,12 @@ function Checkout() {
     <>
       <div className="container">
         <h1
-          className="text-center py-1 my-3 bg-dark text-light"
-          style={{ borderRadius: "50px" }}
+          className="text-center py-1 my-3 text-light"
         >
-          <b>Order summary</b>
+          Order summary
         </h1>
 
-        <table className="table table-responsive table-sm table-bordered border-light bg-secondary text-light text-center">
+        <table className="table table-responsive table-sm table-bordered border-light text-light text-center">
           <thead>
             <tr className="bg-dark">
               <th>Product's Details</th>
@@ -147,7 +146,7 @@ function Checkout() {
         </table>
       </div>
       <div style={{ textAlign: "center" }} className="container my-3">
-        <button className="btn btn-secondary" onClick={handlePayment}>
+        <button className="btn btn-warning" onClick={handlePayment}>
           <b>Payment Now</b>
         </button>
       </div>

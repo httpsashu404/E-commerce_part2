@@ -1,6 +1,7 @@
 import ShowProduct from "./components/product/ShowProduct";
 import ProductDetail from "./components/product/ProductDetail";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Register from "./components/user/Register";
 import Login from "./components/user/Login";
 import Profile from "./components/user/Profile";
@@ -38,6 +39,7 @@ function App() {
             element={<OrderConfirmation />}
           ></Route>
         </Routes>
+        <Footer/>
       </Router>
     </>
   );

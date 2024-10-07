@@ -1,6 +1,9 @@
 body::-webkit-scrollbar{
     display: none;
 }
+body{
+    background-color: #49688e;
+}
 td{
     vertical-align: middle;
 }

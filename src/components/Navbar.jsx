@@ -35,15 +35,19 @@ function Navbar() {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-sm bg-info navbar-light shadow sticky-top">
+      <nav
+        style={{ backgroundColor: "#294a70" }}
+        className="navbar navbar-expand-sm navbar-dark shadow sticky-top"
+      >
         <div className="container-fluid">
           <Link to={"/"} className="navbar-brand">
-            <img
+            {/* <img
               className="logo"
               src="../../image/logo.png"
               alt=""
               style={{ width: "60px" }}
-            />
+            /> */}
+            <h4>ZenMart</h4>
           </Link>
           <button
             className="navbar-toggler"
@@ -89,7 +93,7 @@ function Navbar() {
                   <li title="Cart" className="nav-item px-1">
                     <Link
                       to={"/cart"}
-                      className="nav-link text-dark position-relative"
+                      className="nav-link position-relative"
                       href="#"
                     >
                       <i
@@ -177,7 +181,7 @@ function Navbar() {
 
       {/* use location for sub navbar */}
       {location.pathname == "/" && (
-        <nav className="navbar navbar-expand-sm m-none p-mone border-bottom">
+        <nav className="navbar navbar-expand-sm navbar-dark m-none p-mone border-bottom">
           <div className="container-fluid">
             <button
               className="navbar-toggler"
@@ -199,6 +203,7 @@ function Navbar() {
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
               <ul className="navbar-nav align-center">
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => setfilterData(products)}
                   className="nav-item"
                 >
@@ -207,6 +212,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByCategory("mobile")}
                   className="nav-item"
                 >
@@ -215,6 +221,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByCategory("laptop")}
                   className="nav-item"
                 >
@@ -223,6 +230,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByCategory("airbuds")}
                   className="nav-item"
                 >
@@ -231,6 +239,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByCategory("headphone")}
                   className="nav-item"
                 >
@@ -239,6 +248,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByCategory("camera")}
                   className="nav-item"
                 >
@@ -247,6 +257,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(1000)}
                   className="nav-item d-none d-sm-block"
                 >
@@ -255,6 +266,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(10000)}
                   className="nav-item d-none d-md-block"
                 >
@@ -263,6 +275,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(20000)}
                   className="nav-item d-none d-md-block"
                 >
@@ -271,6 +284,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(30000)}
                   className="nav-item d-none d-lg-block"
                 >
@@ -279,6 +293,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(40000)}
                   className="nav-item d-none d-lg-block"
                 >
@@ -287,6 +302,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(50000)}
                   className="nav-item d-none d-lg-block"
                 >
@@ -295,6 +311,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(60000)}
                   className="nav-item d-none d-lg-block"
                 >
@@ -303,6 +320,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(70000)}
                   className="nav-item d-none d-xl-block"
                 >
@@ -311,6 +329,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(80000)}
                   className="nav-item d-none d-xl-block"
                 >
@@ -319,6 +338,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(90000)}
                   className="nav-item d-none d-md-block"
                 >
@@ -327,6 +347,7 @@ function Navbar() {
                   </a>
                 </li>
                 <li
+                  style={{ borderRight: "2px dotted white" }}
                   onClick={() => filterByPrice(1000000)}
                   className="nav-item d-none d-xl-block"
                 >

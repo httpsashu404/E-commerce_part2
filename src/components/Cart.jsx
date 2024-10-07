@@ -46,14 +46,15 @@ function Cart() {
             <div className="btn btn-sm btn-warning my-2 mx-2">
               <b>Total : ₹</b>
               {price}/-
-            </div>            
+            </div>
           </div>
         </>
       )}
       {cart?.items?.map((product) => (
         <div
           key={product._id}
-          className="container text-center text-light mt-2 bg-secondary rounded"
+          style={{ backgroundColor: "#294a70" }}
+          className="container text-center text-light mt-2 rounded"
         >
           <div className="row justify-content-between align-items-center">
             <div className="left col-3 col-sm-5 mb-1">
@@ -87,14 +88,14 @@ function Cart() {
                     )
                   }
                   style={{ fontSize: "22px" }}
-                  className="btn btn-sm btn-outline-dark m-1 text-light py-0"
+                  className="btn btn-sm btn-outline-warning m-1 text-light py-0"
                 >
                   <b>+</b>
                 </div>
                 <div
                   onClick={() => decreaseQty(product.productId, 1)}
                   style={{ fontSize: "22px" }}
-                  className="btn btn-sm btn-outline-dark m-1 text-light py-0"
+                  className="btn btn-sm btn-outline-warning m-1 text-light py-0"
                 >
                   <b>-</b>
                 </div>

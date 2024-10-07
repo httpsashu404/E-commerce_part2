@@ -51,10 +51,11 @@ function Address() {
       <div className="container">
         <div className="row justify-content-center">
           <form
+            style={{ backgroundColor: "#294a70" }}
             autoComplete="off"
             onSubmit={submitHandler}
             className="
-          col-12 col-sm-10 col-md-8 col-lg-6 m-4 p-3 text-light shadow border rounded bg-secondary
+          col-12 col-sm-10 col-md-8 col-lg-6 m-4 p-3 text-light shadow border rounded
           "
           >
             <legend className="text-center">

@@ -19,7 +19,7 @@ function RelatedProduct({ category }) {
     <>
       <div className="container RelatedProduct mt-5">
         <h2 className="text-center">
-          <u>
+          <u className="text-light">
             <b>Related Product</b>
           </u>
         </h2>
@@ -30,7 +30,7 @@ function RelatedProduct({ category }) {
                 key={RelatedProduct._id}
                 className="my-3 col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-item-center"
               >
-                <div className="card text-dark bg-light">
+                <div className="card text-light" style={{ backgroundColor: "#294a70" }}>
                   <Link
                     to={`/product/${product._id}`}
                     className="image d-flex justify-content-center align-item-center p-3"
@@ -48,8 +48,7 @@ function RelatedProduct({ category }) {
                     />
                   </Link>
                   <div className="card-body text-center">
-                    <h5 className="card-title">{product.title}</h5>
-                    <p className="card-text">{product.description}</p>
+                    <h5 className="card-title">{product.title}</h5><br />
                     <div className="row justify-content-around">
                       <button
                         className="btn btn-sm btn-primary"

@@ -14,14 +14,14 @@ function ShowProduct() {
               key={product._id}
               className="my- col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-item-center"
             >
-              <div className="card text-dark m-2">
+              <div className="card text-light m-2" style={{ backgroundColor: "#294a70" }}>
                 <Link
                   to={`/product/${product._id}`}
-                  className="image p-3 d-flex justify-content-center align-item-center"
+                  className="image p-2 d-flex justify-content-center align-item-center"
                 >
                   <img
                     src={product.imgSrc}
-                    className="card-img-top shadow border"
+                    className="card-img-top shadow"
                     alt="image"
                     style={{
                       width: "180px",
@@ -31,7 +31,7 @@ function ShowProduct() {
                   />
                 </Link>
                 <div className="card-body text-center">
-                  <h5 className="card-title">{product.title}</h5>
+                  <h5 className="card-title">{product.title}</h5><br />
                   {/* <p className="card-text text-secondary">
                     {product.description}
                   </p> */}
