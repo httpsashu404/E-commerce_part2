@@ -28,7 +28,7 @@ function ProductDetail() {
 
   return (
     <>
-      <div className="container ProductDetail text-center mt-5">
+      <div className="container text-light ProductDetail text-center mt-5">
         <div className="row ">
           <div className="left col-12 col-sm-6 mb-3">
             <img
