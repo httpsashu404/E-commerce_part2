@@ -9,37 +9,43 @@ function Footer() {
       >
         <div className="row justify-content-between align-items-between">
           <div className="col-6 col-md-4  py-2">
-            <b>Quick Links</b>
+            <b className="border-bottom">Quick Links</b>            
             <Link className="d-block nav-link" to={"/"}>
-              Link
+              Home
             </Link>
             <Link className="d-block nav-link" to={"/"}>
-              Link
+              About Us
             </Link>
             <Link className="d-block nav-link" to={"/"}>
-              Link
+              Contact Us
             </Link>
             <Link className="d-block nav-link" to={"/"}>
-              Link
+              Information
+            </Link>
+            <Link className="d-block nav-link" to={"/"}>
+              Careers
             </Link>
           </div>
           <div className="col-6 col-md-4  py-2">
-            <b>Services</b>
+            <b className="border-bottom">Services</b>
             <Link className="d-block nav-link" to={"/"}>
-              Link
+            Payments
             </Link>
             <Link className="d-block nav-link" to={"/"}>
-              Link
+              Shiping
             </Link>
             <Link className="d-block nav-link" to={"/"}>
-              Link
+            Track
             </Link>
             <Link className="d-block nav-link" to={"/"}>
-              Link
+              Cancellation
+            </Link>
+            <Link className="d-block nav-link" to={"/"}>
+              Return
             </Link>
           </div>
           <div className="col-md py-2">
-            <b>Address</b>
+            <b className="border-bottom">Address</b>
             <br />
             ZenMart E-commerce <br />
             Sasaram, Rohtas <br />
