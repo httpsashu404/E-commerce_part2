@@ -1,0 +1,31 @@
+/* Navbar.jsx */
+.navbar .search{
+    margin: auto;
+}
+.navbar .search input{
+    border-radius: 50px;
+}
+
+/* showProduct.jsx */
+.showProduct .card:hover{
+    transition: .3s;
+    box-shadow: 0px 0px 10px rgb(102, 180, 254);
+    /* border: 1px solid black; */
+}
+
+/* RelatedProduct.jsx */
+.RelatedProduct .card:hover{
+    transition: .3s;
+    box-shadow: 0px 0px 10px rgb(102, 180, 254);
+}
+
+/* ProductDetail.jsx */
+.ProductDetail{
+    padding-top: 18px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.1);
+}
+.ProductDetail .image:hover{
+    transition: .3s;
+    box-shadow: 0px 0px 10px rgb(102, 180, 254);
+}

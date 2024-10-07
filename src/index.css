@@ -1,0 +1,6 @@
+body::-webkit-scrollbar{
+    display: none;
+}
+td{
+    vertical-align: middle;
+}
