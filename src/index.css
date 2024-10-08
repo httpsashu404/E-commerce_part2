@@ -4,6 +4,10 @@ body::-webkit-scrollbar{
 body{
     background-color: #49688e;
 }
+table, th, td, tr{
+    vertical-align: middle;
+    width: max-content;
+}
 td{
     vertical-align: middle;
 }

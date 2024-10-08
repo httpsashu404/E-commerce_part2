@@ -19,7 +19,7 @@ function ShowOrderProduct({ items }) {
 
   return (
     <>
-      <div className="container">
+      <div className="">
         <table className="table table-sm table-bordered text-light">
           <thead>
             <tr>

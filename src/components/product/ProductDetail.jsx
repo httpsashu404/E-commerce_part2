@@ -29,7 +29,7 @@ function ProductDetail() {
   return (
     <>
       <div className="container text-light ProductDetail text-center mt-5">
-        <div className="row ">
+        <div className="row">
           <div className="left col-12 col-sm-6 mb-3">
             <img
               className="image"
@@ -51,7 +51,7 @@ function ProductDetail() {
             <p>
               <b>{product?.description}</b>
             </p>
-            <h3>₹ {product?.price}</h3>
+            <h3>₹ {product?.price}/-</h3>
             {/* <div className="my-3">
               <button
                 className="btn btn-sm btn-danger m-1"

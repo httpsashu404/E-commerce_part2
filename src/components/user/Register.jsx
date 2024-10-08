@@ -38,7 +38,7 @@ function Register() {
           "
           >
             <legend className="text-center">
-              <b>User Register</b>
+              <b className="border-bottom">User Register</b>
             </legend>
             <div className="mb-3">
               <label htmlFor="name" className="form-label">
@@ -51,7 +51,7 @@ function Register() {
                 name="name"
                 value={formData.name}
                 onChange={onChangeHandler}
-                placeholder="Your fullname"
+                placeholder="Your full name"
                 aria-describedby="textHelp"
                 required
                 autoFocus
@@ -88,7 +88,7 @@ function Register() {
                 required
               />
             </div>
-            <div className="row justify-content-between">
+            <div className="row justify-content-between py-2">
               <button type="submit" className="btn btn-primary col-5">
                 Register
               </button>

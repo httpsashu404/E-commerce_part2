@@ -5,7 +5,7 @@ import AppContext from "../../context/AppContext";
 import { Link } from "react-router-dom";
 
 function RelatedProduct({ category }) {
-  const { products } = useContext(AppContext);
+  const { products, addToCart } = useContext(AppContext);
   const [RelatedProduct, setRelatedProduct] = useState([]);
 
   useEffect(() => {
@@ -30,7 +30,10 @@ function RelatedProduct({ category }) {
                 key={RelatedProduct._id}
                 className="my-3 col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-item-center"
               >
-                <div className="card text-light" style={{ backgroundColor: "#294a70" }}>
+                <div
+                  className="card text-light"
+                  style={{ backgroundColor: "#294a70" }}
+                >
                   <Link
                     to={`/product/${product._id}`}
                     className="image d-flex justify-content-center align-item-center p-3"
@@ -48,17 +51,27 @@ function RelatedProduct({ category }) {
                     />
                   </Link>
                   <div className="card-body text-center">
-                    <h5 className="card-title">{product.title}</h5><br />
+                    <h5 className="card-title">{product.title}</h5>
+                    <br />
                     <div className="row justify-content-around">
                       <button
                         className="btn btn-sm btn-primary"
-                        style={{width:'max-content'}}
+                        style={{ width: "max-content" }}
                       >
                         ₹ {product.price}/-
                       </button>
                       <button
+                        onClick={() =>
+                          addToCart(
+                            product._id,
+                            product.title,
+                            product.price,
+                            1,
+                            product.imgSrc
+                          )
+                        }
                         className="btn btn-sm btn-warning"
-                        style={{width:'max-content'}}
+                        style={{ width: "max-content" }}
                       >
                         Add To Cart
                       </button>

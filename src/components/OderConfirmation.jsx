@@ -13,10 +13,10 @@ function OderConfirmation() {
 
   return (
     <>
-      <div className="container text-light my-3">
+      <div className="container-fluid text-light my-3">
         <h1 className="text-center">Your order has been confirm,</h1>
         <h4 className="text-center">it will delivered in 7 days</h4>
-        <table className="table table-responsive table-sm table-bordered border-light  text-light text-center">
+        <table className="table table-responsive table-sm table-bordered border-light text-light text-center">
           <thead>
             <tr className="bg-dark">
               <th>Order items</th>

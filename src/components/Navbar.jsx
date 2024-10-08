@@ -37,7 +37,7 @@ function Navbar() {
     <>
       <nav
         style={{ backgroundColor: "#294a70" }}
-        className="navbar navbar-expand-sm navbar-dark shadow sticky-top"
+        className="navbar navbar-expand navbar-dark shadow sticky-top"
       >
         <div className="container-fluid">
           <Link to={"/"} className="navbar-brand">
@@ -47,7 +47,7 @@ function Navbar() {
               alt=""
               style={{ width: "60px" }}
             /> */}
-            <h4>ZenMart</h4>
+            <h4 className="">ZenMart</h4>
           </Link>
           <button
             className="navbar-toggler"
@@ -70,7 +70,7 @@ function Navbar() {
               <input
                 value={searchTerm}
                 onChange={(e) => setsearchTerm(e.target.value)}
-                className="form-control"
+                className="form-control d-none d-sm-block"
                 type="text"
                 placeholder="Search Products...."
                 aria-label="Search"
@@ -82,12 +82,13 @@ function Navbar() {
             >
               {isAuthenticated && (
                 <>
-                  <li title="Home" className="nav-item px-1">
+                  <li title="Home" className="nav-item d-none d-sm-block">
                     <Link to={"/"} className="nav-link">
                       <i
                         style={{ fontSize: "22px" }}
                         className="fa-solid fa-house"
                       ></i>
+                      {/* <b>Home</b> */}
                     </Link>
                   </li>
                   <li title="Cart" className="nav-item px-1">
@@ -147,7 +148,7 @@ function Navbar() {
 
               {!isAuthenticated && (
                 <>
-                  <li title="Home" className="nav-item">
+                  <li title="Home" className="nav-item d-none d-sm-block">
                     <Link to={"/"} className="nav-link">
                       <i
                         style={{ fontSize: "22px" }}
@@ -158,12 +159,12 @@ function Navbar() {
                   </li>
                   <li title="Login" className="nav-item">
                     <Link to={"/login"} className="nav-link" href="#">
-                      <b>Login</b>
+                      Login
                     </Link>
                   </li>
                   <li title="Register" className="nav-item">
                     <Link to={"/register"} className="nav-link">
-                      <b>Register</b>
+                      Register
                     </Link>
                   </li>
 
@@ -180,6 +181,23 @@ function Navbar() {
       </nav>
 
       {/* use location for sub navbar */}
+      {location.pathname != "/" && (
+        <div
+          style={{
+            width: "35px",
+            height: "35px",
+            marginLeft: "auto",
+            textAlign: "center",
+            borderRadius: "50px",
+            border: "1px solid black",
+          }}
+          className="home d-sm-none fixed-bottom bg-warning"
+        >
+          <Link to={"/"} className="nav-link text-dark p-1">
+            <i className="fa-solid fa-house"></i>
+          </Link>
+        </div>
+      )}
       {location.pathname == "/" && (
         <nav className="navbar navbar-expand-sm navbar-dark m-none p-mone border-bottom">
           <div className="container-fluid">

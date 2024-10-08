@@ -38,7 +38,7 @@ function Login() {
           "
           >
             <legend className="text-center">
-              <b>User Login</b>
+              <b className="border-bottom">User Login</b>
             </legend>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
@@ -72,7 +72,7 @@ function Login() {
                 required
               />
             </div>
-            <div className="row justify-content-between">
+            <div className="row justify-content-between py-2">
               <button type="submit" className="btn btn-primary col-5">
                 Login
               </button>

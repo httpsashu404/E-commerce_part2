@@ -12,7 +12,7 @@ function ShowProduct() {
           {filterData?.map((product) => (
             <div
               key={product._id}
-              className="my- col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-item-center"
+              className="col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-item-center"
             >
               <div className="card text-light m-2" style={{ backgroundColor: "#294a70" }}>
                 <Link

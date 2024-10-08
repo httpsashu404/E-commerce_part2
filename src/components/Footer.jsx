@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
       <div
-        style={{ backgroundColor: "#294a70" }}
+        style={{ backgroundColor: "#294a70", marginTop:'90vh' }}
         className="container-fluid text-light text-center py-3"
       >
         <div className="row justify-content-between align-items-between">
