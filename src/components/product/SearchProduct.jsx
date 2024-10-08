@@ -4,7 +4,7 @@ import AppContext from "../../context/AppContext";
 import { Link, useParams } from "react-router-dom";
 
 function searchProduct() {
-  const { products } = useContext(AppContext);
+  const { products, addToCart } = useContext(AppContext);
   const [searchProduct, setsearchProduct] = useState([]);
 
   const { term } = useParams();
@@ -18,55 +18,63 @@ function searchProduct() {
   }, [term, products]);
   return (
     <>
-      <div className="container RelatedProduct mt-5">
-        <div className="container d-flex justify-content-center align-item-center">
-          <div className="row container d-flex mb-5">
-            {searchProduct?.map((product) => (
-              <div
-                key={product._id}
-                className="my-3 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center align-item-center"
+    <div className="container showProduct d-flex justify-content-center align-items-center">
+      <div className="row container d-flex my-5">
+        {searchProduct?.map((product) => (
+          <div
+            key={product._id}
+            className="col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center"
+          >
+            <div className="card text-light mb-1" style={{ backgroundColor: "#294a70" }}>
+              <Link
+                to={`/product/${product._id}`}
+                className="image p-1 d-flex justify-content-center align-items-center"
               >
-                <div className="card text-dark bg-light">
-                  <Link
-                    to={`/product/${product._id}`}
-                    className="image d-flex justify-content-center align-item-center p-3"
+                <img
+                  src={product.imgSrc}
+                  className="card-img-top"
+                  alt="image"
+                  style={{
+                    width: "120px",
+                    height: "120px",
+                    borderRadius: "10px",
+                  }}
+                />
+              </Link>
+              <div className="card-body text-center">
+                <h5 className="card-title">{product.title}</h5>
+                {/* <p className="card-text text-secondary">
+                  {product.description}
+                </p> */}
+                <div className="justify-content-around">
+                  <button
+                    className="btn btn-sm btn-primary mx-1"
+                    style={{ width: "max-content" }}
                   >
-                    <img
-                      src={product.imgSrc}
-                      className="card-img-top"
-                      alt="image"
-                      style={{
-                        width: "180px",
-                        height: "180px",
-                        borderRadius: "10px",
-                        border: "1px solid silver",
-                      }}
-                    />
-                  </Link>
-                  <div className="card-body text-center">
-                    <h5 className="card-title">{product.title}</h5>
-                    <p className="card-text">{product.description}</p>
-                    <div className="row">
-                      <button
-                        className="btn btn-primary mx-1 col-5"
-                        style={{ width: "max-content" }}
-                      >
-                        ₹ {product.price}/-
-                      </button>
-                      <button
-                        className="btn btn-warning mx-1 col-5"
-                        style={{ width: "max-content" }}
-                      >
-                        Add To Cart
-                      </button>
-                    </div>
-                  </div>
+                    ₹ {product.price}/-
+                  </button>
+                  <button
+                    onClick={() =>
+                      addToCart(
+                        product._id,
+                        product.title,
+                        product.price,
+                        1,
+                        product.imgSrc
+                      )
+                    }
+                    className="btn btn-sm btn-warning mx-1"
+                    style={{ width: "max-content" }}
+                  >
+                    Add To Cart
+                  </button>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
+    </div>
     </>
   );
 }

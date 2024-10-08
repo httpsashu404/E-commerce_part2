@@ -15,7 +15,7 @@ function OderConfirmation() {
     <>
       <div className="container-fluid text-light my-3">
         <h1 className="text-center">Your order has been confirm,</h1>
-        <h4 className="text-center">it will delivered in 7 days</h4>
+        <h4 className="text-center">it will delivered in 7 days</h4><br />
         <table className="table table-responsive table-sm table-bordered border-light text-light text-center">
           <thead>
             <tr className="bg-dark">

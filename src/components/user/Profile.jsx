@@ -6,8 +6,11 @@ function Profile() {
   return (
     <>
       <div className="container text-light text-center my-5">
-        <h1>Welcome, {user?.name}</h1><hr />
-        <h3>{user?.email}</h3>
+        <div className="row align-items-center">
+          <h1 className="text-light">Welcome, {user?.name}</h1>
+          <hr />
+          <h3 className="text-info">{user?.email}</h3>
+        </div>
       </div>
     </>
   );

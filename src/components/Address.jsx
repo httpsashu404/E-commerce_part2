@@ -49,7 +49,7 @@ function Address() {
   return (
     <>
       <div className="container">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center align-items-center">
           <form
             style={{ backgroundColor: "#294a70" }}
             autoComplete="off"

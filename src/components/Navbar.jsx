@@ -10,7 +10,7 @@ function Navbar() {
   const location = useLocation();
 
   // filter products
-  const { setfilterData, products, logout, isAuthenticated, cart } =
+  const { setfilterData, products, logout, cart, user } =
     useContext(AppContext);
 
   // filter by categories
@@ -31,7 +31,7 @@ function Navbar() {
   const submitHandler = (e) => {
     e.preventDefault();
     navigate(`/product/search/${searchTerm}`);
-    setsearchTerm(" ");
+    setsearchTerm("");
   };
   return (
     <>
@@ -80,7 +80,7 @@ function Navbar() {
               className="navbar-nav ms-auto mb-2 mb-lg-0"
               style={{ fontSize: "16px" }}
             >
-              {isAuthenticated && (
+              {user && (
                 <>
                   <li title="Home" className="nav-item d-none d-sm-block">
                     <Link to={"/"} className="nav-link">
@@ -146,7 +146,7 @@ function Navbar() {
                 </>
               )}
 
-              {!isAuthenticated && (
+              {!user && (
                 <>
                   <li title="Home" className="nav-item d-none d-sm-block">
                     <Link to={"/"} className="nav-link">
@@ -186,6 +186,8 @@ function Navbar() {
           style={{
             width: "35px",
             height: "35px",
+            marginBottom: "15px",
+            marginRight: "15px",
             marginLeft: "auto",
             textAlign: "center",
             borderRadius: "50px",

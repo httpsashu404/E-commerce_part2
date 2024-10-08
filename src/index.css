@@ -4,9 +4,13 @@ body::-webkit-scrollbar{
 body{
     background-color: #49688e;
 }
+.card{
+    border: 1px solid silver;
+}
 table, th, td, tr{
-    vertical-align: middle;
+    text-wrap: none;
     width: max-content;
+    vertical-align: middle;
 }
 td{
     vertical-align: middle;

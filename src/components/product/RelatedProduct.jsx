@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function RelatedProduct({ category }) {
   const { products, addToCart } = useContext(AppContext);
-  const [RelatedProduct, setRelatedProduct] = useState([]);
+  const [relatedProduct, setRelatedProduct] = useState([]);
 
   useEffect(() => {
     setRelatedProduct(
@@ -23,12 +23,12 @@ function RelatedProduct({ category }) {
             <b>Related Product</b>
           </u>
         </h2>
-        <div className="container d-flex justify-content-center align-item-center">
+        <div className="container d-flex justify-content-center align-items-center">
           <div className="row container d-flex mb-5">
-            {products?.map((product) => (
+            {relatedProduct?.map((product) => (
               <div
-                key={RelatedProduct._id}
-                className="my-3 col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-item-center"
+                key={relatedProduct._id}
+                className="my-3 col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center"
               >
                 <div
                   className="card text-light"
@@ -36,15 +36,15 @@ function RelatedProduct({ category }) {
                 >
                   <Link
                     to={`/product/${product._id}`}
-                    className="image d-flex justify-content-center align-item-center p-3"
+                    className="image d-flex justify-content-center align-items-center p-1"
                   >
                     <img
                       src={product.imgSrc}
                       className="card-img-top"
                       alt="image"
                       style={{
-                        width: "180px",
-                        height: "180px",
+                        width: "120px",
+                        height: "120px",
                         borderRadius: "10px",
                         border: "1px solid silver",
                       }}
@@ -52,10 +52,9 @@ function RelatedProduct({ category }) {
                   </Link>
                   <div className="card-body text-center">
                     <h5 className="card-title">{product.title}</h5>
-                    <br />
-                    <div className="row justify-content-around">
+                    <div className="justify-content-around">
                       <button
-                        className="btn btn-sm btn-primary"
+                        className="btn btn-sm btn-primary mx-1"
                         style={{ width: "max-content" }}
                       >
                         ₹ {product.price}/-
@@ -70,7 +69,7 @@ function RelatedProduct({ category }) {
                             product.imgSrc
                           )
                         }
-                        className="btn btn-sm btn-warning"
+                        className="btn btn-sm btn-warning mx-1"
                         style={{ width: "max-content" }}
                       >
                         Add To Cart
