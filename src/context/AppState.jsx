@@ -304,8 +304,7 @@ function AppState(props) {
       },
       withCredentials: true,
     });
-    // console.log("User order", api.data);
-    setUserOrder(api.data);
+    return setUserOrder(api.data);
   };
 
   return (

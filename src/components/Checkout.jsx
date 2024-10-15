@@ -42,7 +42,7 @@ function Checkout() {
         currency: "INR",
         name: "ZenMart",
         description: "ZenMart",
-        image: "https://example.com/your_logo",
+        image: "../../image/logo.png",
         order_id: orderId,
 
         handler: async function (response) {
@@ -73,10 +73,10 @@ function Checkout() {
           contact: "7763992074",
         },
         notes: {
-          address: "Sasaram, Lalganj Nahar, nearby devraj oil miles",
+          address: "Sasaram, Gaurakshani, Durga mandir",
         },
         theme: {
-          color: "#3399cc",
+          color: "#294a70",
         },
       };
       const rzp = new window.Razorpay(options);
