@@ -28,7 +28,7 @@ function Cart() {
       {cart?.items?.length <= 0 ? (
         <>
           <div className="shoping align-center text-center">
-          <img style={{width:'180px'}} src="../../image/emptyCart.webp" alt="" /> <br />
+          <img style={{width:'180px'}} src="https://raw.githubusercontent.com/httpsashu404/E-commerce_part2/refs/heads/main/image/emptyCart.webp" alt="" /> <br />
             <button
               className="btn btn-warning my-2"
               onClick={() => navigate("/")}

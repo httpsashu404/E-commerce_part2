@@ -42,7 +42,7 @@ function Checkout() {
         currency: "INR",
         name: "ZenMart",
         description: "ZenMart",
-        image: "../../image/logo.png",
+        image: "https://raw.githubusercontent.com/httpsashu404/E-commerce_part2/refs/heads/main/image/emptyCart.webp",
         order_id: orderId,
 
         handler: async function (response) {

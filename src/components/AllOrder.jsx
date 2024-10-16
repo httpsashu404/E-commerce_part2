@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function AllOrder() {
   return (
-    <div>AllOrder</div>
-  )
+    <>
+      <h1>Working in process on this page</h1>
+    </>
+  );
 }
 
-export default AllOrder
+export default AllOrder;
