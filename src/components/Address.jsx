@@ -58,14 +58,11 @@ function Address() {
           col-12 col-sm-10 col-md-8 col-lg-6 m-4 p-3 text-light shadow border rounded
           "
           >
-            <legend className="text-center">
-              <b>Shiping Address</b>
+            <legend className="text-center mb-4">
+              <b className="border-bottom">Shiping Address</b>
             </legend>
             <div className="row">
               <div className="col-sm mb-3">
-                <label htmlFor="fullName" className="form-label">
-                  FullName :
-                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -73,15 +70,12 @@ function Address() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={onChangeHandler}
-                  placeholder="Your fullname"
+                  placeholder="Your full name"
                   required
                   autoFocus
                 />
               </div>
               <div className="col-sm mb-3">
-                <label htmlFor="country" className="form-label">
-                  Country :
-                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -89,14 +83,11 @@ function Address() {
                   name="country"
                   value={formData.country}
                   onChange={onChangeHandler}
-                  placeholder="Your Country"
+                  placeholder="Your country name"
                   required
                 />
               </div>
               <div className="col-sm mb-3">
-                <label htmlFor="state" className="form-label">
-                  State :
-                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -104,16 +95,13 @@ function Address() {
                   name="state"
                   value={formData.state}
                   onChange={onChangeHandler}
-                  placeholder="Your State"
+                  placeholder="Your state name"
                   required
                 />
               </div>
             </div>
             <div className="row">
               <div className="col-sm mb-3">
-                <label htmlFor="city" className="form-label">
-                  City :
-                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -121,14 +109,11 @@ function Address() {
                   name="city"
                   value={formData.city}
                   onChange={onChangeHandler}
-                  placeholder="Your city"
+                  placeholder="Your city name"
                   required
                 />
               </div>
               <div className="col-sm mb-3">
-                <label htmlFor="pincode" className="form-label">
-                  Pincode :
-                </label>
                 <input
                   type="number"
                   className="form-control"
@@ -142,9 +127,6 @@ function Address() {
                 />
               </div>
               <div className="col-sm mb-3">
-                <label htmlFor="phoneNumber" className="form-label">
-                  Contact :
-                </label>
                 <input
                   type="number"
                   className="form-control"
@@ -153,16 +135,13 @@ function Address() {
                   maxLength={10}
                   value={formData.phoneNumber}
                   onChange={onChangeHandler}
-                  placeholder="Your phoneNumber"
+                  placeholder="Your phone number"
                   required
                 />
               </div>
             </div>
             <div className="row">
               <div className="col-sm mb-3">
-                <label htmlFor="address" className="form-label">
-                  AddressLine/Nearby :
-                </label>
                 <textarea
                   className="form-control"
                   id="address"

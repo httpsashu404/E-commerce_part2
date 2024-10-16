@@ -8,6 +8,7 @@ function Register() {
   const [formData, setformData] = useState({
     name: "",
     email: "",
+    phone: "",
     password: "",
   });
 
@@ -16,14 +17,13 @@ function Register() {
     setformData({ ...formData, [name]: value });
   };
 
-  const { name, email, password } = formData;
+  const { name, email, phone, password } = formData;
   const submitHandler = async (e) => {
     e.preventDefault();
-    const result = await register(name, email, password);
+    const result = await register(name, email, phone, password);
     if (result.success) {
       navigate("/login");
     }
-    // alert("Form Submited");
   };
   return (
     <>
@@ -37,51 +37,49 @@ function Register() {
           col-12 col-sm-10 col-md-8 col-lg-5 m-5 p-3 text-light shadow border rounded
           "
           >
-            <legend className="text-center">
+            <legend className="text-center mb-4">
               <b className="border-bottom">User Register</b>
             </legend>
             <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                <b>Name : </b>
-              </label>
               <input
                 type="text"
                 className="form-control"
-                id="name"
                 name="name"
                 value={formData.name}
                 onChange={onChangeHandler}
                 placeholder="Your full name"
-                aria-describedby="textHelp"
                 required
                 autoFocus
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                <b>Email : </b>
-              </label>
               <input
                 type="email"
                 className="form-control"
-                id="email"
                 name="email"
                 value={formData.email}
                 onChange={onChangeHandler}
                 placeholder="Your email address"
-                aria-describedby="emailHelp"
                 required
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">
-                <b>Password : </b>
-              </label>
+              <input
+                type="tel"
+                className="form-control"
+                name="phone"
+                maxLength={10}
+                value={formData.phone}
+                onChange={onChangeHandler}
+                placeholder="Your phone/mobile number"
+                required
+              />
+            </div>
+            <div className="mb-3">
               <input
                 type="password"
                 className="form-control"
                 placeholder="Your password"
-                id="password"
                 name="password"
                 value={formData.password}
                 onChange={onChangeHandler}

@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 
-function Login() {
-  const { login } = useContext(AppContext);
+function forgetPass() {
+  const { forgetPass } = useContext(AppContext);
   const navigate = useNavigate();
   const [formData, setformData] = useState({
     email: "",
@@ -19,9 +19,9 @@ function Login() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const result = await login(email, password);
+    const result = await forgetPass(email, password);
     if (result.success) {
-      navigate("/");
+      navigate("/login");
     }
   };
   return (
@@ -37,7 +37,7 @@ function Login() {
           "
           >
             <legend className="text-center mb-4">
-              <b className="border-bottom">User Login</b>
+              <b className="border-bottom">Forget Password</b>
             </legend>
             <div className="mb-3">
               <input
@@ -56,25 +56,19 @@ function Login() {
               <input
                 type="password"
                 className="form-control"
-                placeholder="Your password"
+                placeholder="Your new password"
                 name="password"
                 value={formData.password}
                 onChange={onChangeHandler}
                 required
               />
             </div>
-            <p>
-              <Link style={{ float: "right" }} to="/forgetPass">
-                forget password?
-              </Link>
-            </p>
-            <br />
             <div className="row justify-content-between py-2">
               <button type="submit" className="btn btn-primary col-5">
-                Login
+                Generate
               </button>
-              <Link to={"/register"} className="btn btn-outline-warning col-5">
-                Register
+              <Link to={"/login"} className="btn btn-outline-warning col-5">
+                Login
               </Link>
             </div>
           </form>
@@ -84,4 +78,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default forgetPass;

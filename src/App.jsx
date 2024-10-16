@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Register from "./components/user/Register";
 import Login from "./components/user/Login";
+import ForgetPass from "./components/user/ForgetPass";
 import Profile from "./components/user/Profile";
 import Cart from "./components/Cart";
 import Address from "./components/Address";
@@ -30,6 +31,7 @@ function App() {
           ></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/forgetPass" element={<ForgetPass />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/shiping" element={<Address />}></Route>
@@ -39,7 +41,7 @@ function App() {
             element={<OrderConfirmation />}
           ></Route>
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
     </>
   );

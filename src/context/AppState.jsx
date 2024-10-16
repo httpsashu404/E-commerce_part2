@@ -6,7 +6,7 @@ import axios from "axios";
 
 function AppState(props) {
   // const url = "http://localhost:5000/api";
-  const url = "https://e-commerce-idmz.onrender.com/api";
+  const url = "https://e-commerce-p0fh.onrender.com/api";
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
@@ -47,10 +47,10 @@ function AppState(props) {
   }, []);
 
   // register user
-  const register = async (name, email, password) => {
+  const register = async (name, email, phone, password) => {
     const api = await axios.post(
       `${url}/user/register`,
-      { name, email, password },
+      { name, email, phone, password },
       {
         headers: {
           "Content-Type": "Application/json",
@@ -58,6 +58,7 @@ function AppState(props) {
         withCredentials: true,
       }
     );
+    // console.log(api.data.message)
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -84,6 +85,7 @@ function AppState(props) {
         withCredentials: true,
       }
     );
+    // console.log(api.data.message)
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -99,6 +101,32 @@ function AppState(props) {
     setisAuthenticated(true);
     localStorage.setItem("token", api.data.token);
     return api.data;
+  };
+
+  // User forget password
+  const forgetPass = async (email, password) => {
+    const api = await axios.put(
+      `${url}/user/forgetPass`,
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    // console.log(api.data)
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
   };
 
   // user logout
@@ -128,6 +156,7 @@ function AppState(props) {
       },
       withCredentials: true,
     });
+    // console.log(api.data.user)
     setUser(api.data.user);
   };
 
@@ -145,6 +174,7 @@ function AppState(props) {
       }
     );
     setReload(!reload);
+    // console.log(api.data.message)
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -168,6 +198,7 @@ function AppState(props) {
       withCredentials: true,
     });
     setCart(api.data.cart);
+    // console.log(api.data.cart)
   };
 
   // qty decrease
@@ -184,6 +215,7 @@ function AppState(props) {
       }
     );
     setReload(!reload);
+    // console.log(api.data.message)
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -329,6 +361,7 @@ function AppState(props) {
         shipingAddress,
         userAddress,
         userOrder,
+        forgetPass,
       }}
     >
       {props.children}
