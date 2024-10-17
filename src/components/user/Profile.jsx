@@ -8,13 +8,13 @@ function Profile() {
     <>
       <div className="container text-light text-center my-5">
         <div className="row align-items-center">
-          <h4 className="text-light">Welcome, {user?.name}</h4>
+          <h2 className="text-light">Welcome, {user?.name}</h2>
           <hr />
-          <h className="text-info"><b>Mo : </b>{user?.phone}</h>
-          <h className="text-info"><b>E-mail : </b>{user?.email}</h>
-          <h className="text-info">
+          <h5 className="text-info"><b>Mo : </b>{user?.phone}</h5>
+          <h5 className="text-info"><b>E-mail : </b>{user?.email}</h5>
+          <h5 className="text-info">
             <b>Id</b> : {user?._id}
-          </h>
+          </h5>
         </div>
 
         {/* Table order progress continue.. */}

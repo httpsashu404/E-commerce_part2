@@ -33,7 +33,7 @@ function Cart() {
               className="btn btn-warning my-2"
               onClick={() => navigate("/")}
             >
-              <b>Continue Shoping</b>
+              <b>Shop Now</b>
             </button>
           </div>
         </>
