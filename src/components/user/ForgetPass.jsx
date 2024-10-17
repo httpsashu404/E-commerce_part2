@@ -44,10 +44,9 @@ function forgetPass() {
                 type="email"
                 className="form-control"
                 name="email"
-                value={formData.email}
+                value={formData.user}
                 onChange={onChangeHandler}
-                placeholder="Your email address"
-                aria-describedby="emailHelp"
+                placeholder="Your email address"         
                 required
                 autoFocus
               />
