@@ -157,14 +157,28 @@ function Navbar() {
                       {/* <b>Home</b> */}
                     </Link>
                   </li>
-                  <li title="Login" className="nav-item">
-                    <Link to={"/login"} className="nav-link" href="#">
-                      Login
+                  <li title="Admin" className="nav-item">
+                    <Link to={"/admin"} className="nav-link" href="#">
+                      <i
+                        style={{ fontSize: "22px" }}
+                        className="fa-solid fa-user-shield"
+                      ></i>
                     </Link>
                   </li>
                   <li title="Register" className="nav-item">
                     <Link to={"/register"} className="nav-link">
-                      Register
+                      <i
+                        style={{ fontSize: "22px" }}
+                        className="fa-solid fa-registered"
+                      ></i>
+                    </Link>
+                  </li>
+                  <li title="Login" className="nav-item">
+                    <Link to={"/login"} className="nav-link" href="#">
+                      <i
+                        style={{ fontSize: "22px" }}
+                        className="fa-solid fa-right-to-bracket"
+                      ></i>
                     </Link>
                   </li>
 

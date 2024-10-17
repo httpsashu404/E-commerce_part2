@@ -1,9 +1,7 @@
-import { useContext, useState } from "react";
-import AppContext from "../../context/AppContext";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
-  const { login } = useContext(AppContext);
+function Admin() {
   const navigate = useNavigate();
   const [formData, setformData] = useState({
     email: "",
@@ -15,14 +13,8 @@ function Login() {
     setformData({ ...formData, [name]: value });
   };
 
-  const { email, password } = formData;
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const result = await login(email, password);
-    if (result.success) {
-      navigate("/");
-    }
+  const submitHandler = () => {
+    navigate("/dashboard");
   };
   return (
     <>
@@ -37,7 +29,7 @@ function Login() {
           "
           >
             <legend className="text-center mb-4">
-              <b className="border-bottom">User Login</b>
+              <b className="border-bottom">Admin Login</b>
             </legend>
             <div className="mb-3">
               <input
@@ -68,13 +60,10 @@ function Login() {
               </Link>
             </p>
             <br />
-            <div className="row justify-content-between py-2">
+            <div className="row justify-content-center py-2">
               <button type="submit" className="btn btn-primary col-5">
                 Login
               </button>
-              <Link to={"/register"} className="btn btn-outline-warning col-5">
-                Register
-              </Link>
             </div>
           </form>
         </div>
@@ -83,4 +72,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Admin;
