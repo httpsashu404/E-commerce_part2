@@ -2,7 +2,7 @@ import ShowProduct from "./components/product/ShowProduct";
 import ProductDetail from "./components/product/ProductDetail";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Admin from "./components/Admin/admin";
+import Admin from "./components/Admin/Admin";
 import Dashboard from "./components/Admin/Dashboard";
 import Register from "./components/user/Register";
 import Login from "./components/user/Login";
