@@ -1,9 +1,9 @@
-import { useState, useContext } from "react";
+import { useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Admin() {
-  const { adminLogin } = useContext(AppContext);
+function PassForget() {
+  const { forgetAdminPass } = useContext(AppContext);
   const navigate = useNavigate();
   const [formData, setformData] = useState({
     email: "",
@@ -19,9 +19,9 @@ function Admin() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const result = await adminLogin(email, password);
+    const result = await forgetAdminPass(email, password);
     if (result.success) {
-      navigate("/dashboard");
+      navigate("/admin");
     }
   };
   return (
@@ -37,14 +37,14 @@ function Admin() {
           "
           >
             <legend className="text-center mb-4">
-              <b className="border-bottom">Admin Login</b>
+              <b className="border-bottom">Forget Password</b>
             </legend>
             <div className="mb-3">
               <input
                 type="email"
                 className="form-control"
                 name="email"
-                value={formData.email}
+                value={formData.user}
                 onChange={onChangeHandler}
                 placeholder="Your email address"
                 required
@@ -55,22 +55,16 @@ function Admin() {
               <input
                 type="password"
                 className="form-control"
-                placeholder="Your password"
+                placeholder="Your new password"
                 name="password"
                 value={formData.password}
                 onChange={onChangeHandler}
                 required
               />
             </div>
-            <p>
-              <Link style={{ float: "right" }} to="/passForget">
-                forget password?
-              </Link>
-            </p>
-            <br />
             <div className="row justify-content-center py-2">
               <button type="submit" className="btn btn-primary col-5">
-                Login
+                Generate
               </button>
             </div>
           </form>
@@ -80,4 +74,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default PassForget;

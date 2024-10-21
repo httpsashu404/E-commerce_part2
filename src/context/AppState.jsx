@@ -5,8 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function AppState(props) {
-  // const url = "http://localhost:5000/api";
-  const url = "https://e-commerce-p0fh.onrender.com/api";
+  const url = "http://localhost:5000/api";
+  // const url = "https://e-commerce-p0fh.onrender.com/api";
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
@@ -73,10 +73,10 @@ function AppState(props) {
     return api.data;
   };
 
-  // User login
-  const login = async (email, password) => {
+  // Admin login
+  const adminLogin = async (email, password) => {
     const api = await axios.post(
-      `${url}/user/login`,
+      `${url}/admin/login`,
       { email, password },
       {
         headers: {
@@ -85,7 +85,7 @@ function AppState(props) {
         withCredentials: true,
       }
     );
-    // console.log(api.data.message)
+    // console.log("admin login : ", api.data.message);
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -103,7 +103,37 @@ function AppState(props) {
     return api.data;
   };
 
-  // User forget password
+  // User login
+  const login = async (email, password) => {
+    const api = await axios.post(
+      `${url}/user/login`,
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    console.log(api.data.message);
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+    settoken(api.data.token);
+    setisAuthenticated(true);
+    localStorage.setItem("token", api.data.token);
+    return api.data;
+  };
+
+  // User forget user password
   const forgetPass = async (email, password) => {
     const api = await axios.put(
       `${url}/user/forgetPass`,
@@ -116,6 +146,32 @@ function AppState(props) {
       }
     );
     // console.log(api.data)
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
+
+  // User forget admin password
+  const forgetAdminPass = async (email, password) => {
+    const api = await axios.put(
+      `${url}/admin/forgetPass`,
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    console.log(api)
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -345,6 +401,7 @@ function AppState(props) {
         products,
         register,
         login,
+        adminLogin,
         url,
         token,
         setisAuthenticated,
@@ -362,6 +419,7 @@ function AppState(props) {
         userAddress,
         userOrder,
         forgetPass,
+        forgetAdminPass,
       }}
     >
       {props.children}

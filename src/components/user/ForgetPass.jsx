@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import AppContext from "../../context/AppContext";
-import {Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function forgetPass() {
   const { forgetPass } = useContext(AppContext);
@@ -46,7 +46,7 @@ function forgetPass() {
                 name="email"
                 value={formData.user}
                 onChange={onChangeHandler}
-                placeholder="Your email address"         
+                placeholder="Your email address"
                 required
                 autoFocus
               />
@@ -62,13 +62,10 @@ function forgetPass() {
                 required
               />
             </div>
-            <div className="row justify-content-between py-2">
+            <div className="row justify-content-center py-2">
               <button type="submit" className="btn btn-primary col-5">
                 Generate
               </button>
-              <Link to={"/login"} className="btn btn-outline-warning col-5">
-                Login
-              </Link>
             </div>
           </form>
         </div>
