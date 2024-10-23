@@ -10,7 +10,7 @@ function Navbar() {
   const location = useLocation();
 
   // filter products
-  const { setfilterData, products, logout, cart, user } =
+  const { setfilterData, products, logout, cart, user, admin } =
     useContext(AppContext);
 
   // filter by categories
@@ -146,7 +146,7 @@ function Navbar() {
                 </>
               )}
 
-              {!user && (
+              {!user && !admin && (
                 <>
                   <li title="Home" className="nav-item d-none d-sm-block">
                     <Link to={"/"} className="nav-link">
@@ -181,12 +181,42 @@ function Navbar() {
                       ></i>
                     </Link>
                   </li>
+                </>
+              )}
 
-                  {/* <li className="nav-item">
-                    <a href="#" className="nav-link" aria-disabled="true">
-                      <b>Admin</b>
+              {admin && (
+                <>
+                  <li title="Home" className="nav-item d-none d-sm-block">
+                    <Link to={"/"} className="nav-link">
+                      <i
+                        style={{ fontSize: "22px" }}
+                        className="fa-solid fa-house"
+                      ></i>
+                    </Link>
+                  </li>
+                  <li title="Profile" className="nav-item px-1">
+                    <Link to={"/adminProfile"} className="nav-link" href="#">
+                      <i
+                        style={{ fontSize: "22px" }}
+                        className="fa-regular fa-circle-user"
+                      ></i>
+                    </Link>
+                  </li>
+                  <li title="Logout" className="nav-item px-1">
+                    <a
+                      className="nav-link"
+                      href="#"
+                      onClick={() => {
+                        logout();
+                        navigate("/");
+                      }}
+                    >
+                      <i
+                        style={{ fontSize: "22px" }}
+                        className="fa-solid fa-right-from-bracket"
+                      ></i>
                     </a>
-                  </li> */}
+                  </li>
                 </>
               )}
             </ul>

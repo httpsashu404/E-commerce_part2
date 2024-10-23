@@ -13,6 +13,7 @@ function AppState(props) {
   const [isAuthenticated, setisAuthenticated] = useState(false);
   const [filterData, setfilterData] = useState([]);
   const [user, setUser] = useState();
+  const [admin, setAdmin] = useState();
   const [cart, setCart] = useState([]);
   const [reload, setReload] = useState(false);
   const [userAddress, setUserAddress] = useState("");
@@ -31,6 +32,7 @@ function AppState(props) {
       setProducts(api.data.products);
       setfilterData(api.data.products);
       userProfile();
+      adminProfile();
     };
     fetchProduct();
     userCart();
@@ -45,6 +47,73 @@ function AppState(props) {
       setisAuthenticated(true);
     }
   }, []);
+
+  // Admin login
+  const adminLogin = async (email, password) => {
+    const api = await axios.post(
+      `${url}/admin/login`,
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+    settoken(api.data.token);
+    setisAuthenticated(true);
+    localStorage.setItem("token", api.data.token);
+    return api.data;
+  };
+
+  // forget admin password
+  const forgetAdminPass = async (email, password) => {
+    const api = await axios.put(
+      `${url}/admin/forgetPass`,
+      { email, password },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        withCredentials: true,
+      }
+    );
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
+
+  // admin profile
+  const adminProfile = async () => {
+    const api = await axios.get(`${url}/admin/profile`, {
+      headers: {
+        "Content-Type": "Application/json",
+        adminAuth: token,
+      },
+      withCredentials: true,
+    });
+    // console.log(api.data.admin);
+    setAdmin(api.data.admin);
+  };
 
   // register user
   const register = async (name, email, phone, password) => {
@@ -70,36 +139,6 @@ function AppState(props) {
       theme: "dark",
       transition: Bounce,
     });
-    return api.data;
-  };
-
-  // Admin login
-  const adminLogin = async (email, password) => {
-    const api = await axios.post(
-      `${url}/admin/login`,
-      { email, password },
-      {
-        headers: {
-          "Content-Type": "Application/json",
-        },
-        withCredentials: true,
-      }
-    );
-    console.log("admin login : ", api);
-    toast.success(api.data.message, {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
-    settoken(api.data.token);
-    setisAuthenticated(true);
-    localStorage.setItem("token", api.data.token);
     return api.data;
   };
 
@@ -133,7 +172,7 @@ function AppState(props) {
     return api.data;
   };
 
-  // User forget user password
+  // forget user password
   const forgetPass = async (email, password) => {
     const api = await axios.put(
       `${url}/user/forgetPass`,
@@ -146,32 +185,6 @@ function AppState(props) {
       }
     );
     // console.log(api.data)
-    toast.success(api.data.message, {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
-  };
-
-  // User forget admin password
-  const forgetAdminPass = async (email, password) => {
-    const api = await axios.put(
-      `${url}/admin/forgetPass`,
-      { email, password },
-      {
-        headers: {
-          "Content-Type": "Application/json",
-        },
-        withCredentials: true,
-      }
-    );
-    console.log(api)
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -399,9 +412,13 @@ function AppState(props) {
     <AppContext.Provider
       value={{
         products,
+        user,
         register,
         login,
+        forgetPass,
+        admin,
         adminLogin,
+        forgetAdminPass,
         url,
         token,
         setisAuthenticated,
@@ -409,7 +426,6 @@ function AppState(props) {
         filterData,
         setfilterData,
         logout,
-        user,
         addToCart,
         cart,
         decreaseQty,
@@ -418,8 +434,6 @@ function AppState(props) {
         shipingAddress,
         userAddress,
         userOrder,
-        forgetPass,
-        forgetAdminPass,
       }}
     >
       {props.children}

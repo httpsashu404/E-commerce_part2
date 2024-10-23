@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Admin from "./components/Admin/Admin";
 import PassForget from "./components/Admin/PassForgt";
 import Dashboard from "./components/Admin/Dashboard";
+import AdminProfile from "./components/Admin/AdminProfile";
 import Register from "./components/user/Register";
 import Login from "./components/user/Login";
 import ForgetPass from "./components/user/ForgetPass";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/admin" element={<Admin />}></Route>
           <Route path="/passForget" element={<PassForget />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/adminProfile" element={<AdminProfile />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/forgetPass" element={<ForgetPass />}></Route>
