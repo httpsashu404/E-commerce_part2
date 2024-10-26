@@ -194,6 +194,44 @@ function Navbar() {
                       ></i>
                     </Link>
                   </li>
+                  <li className="nav-item dropdown">
+                    <a
+                      className="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Manage
+                    </a>
+                    <ul
+                      className="dropdown-menu"
+                    >
+                      <li>
+                        <a className="dropdown-item" href="#"></a>
+                      </li>
+                      <li>
+                        <Link to={'/dashboard'} className="dropdown-item" href="#">
+                          Dashboard
+                        </Link>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          Add product
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          All users
+                        </a>
+                      </li>
+                      <li>
+                        <a className="dropdown-item" href="#">
+                          All orders
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
                   <li title="Profile" className="nav-item px-1">
                     <Link to={"/adminProfile"} className="nav-link" href="#">
                       <i
@@ -225,7 +263,7 @@ function Navbar() {
       </nav>
 
       {/* use location for sub navbar */}
-      {location.pathname != "/" && (
+      {location.pathname != "/" && location.pathname != "/dashboard" && (
         <div
           style={{
             width: "35px",
@@ -244,7 +282,7 @@ function Navbar() {
           </Link>
         </div>
       )}
-      {location.pathname == "/" && (
+      {location.pathname == "/" && location.pathname == "/dashboard" && (
         <nav className="navbar navbar-expand-sm navbar-dark m-none p-mone border-bottom">
           <div className="container-fluid">
             <button

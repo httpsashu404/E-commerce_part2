@@ -115,6 +115,19 @@ function AppState(props) {
     setAdmin(api.data.admin);
   };
 
+  // All users
+  const allUser = async () => {
+    const api = await axios.get(`${url}/admin/alluser`, {
+      headers: {
+        "Content-Type": "Application/json",
+        // adminAuth: token,
+      },
+      withCredentials: true,
+    });
+    console.log("All user : ", api);
+    // setAdmin(api.data.admin);
+  };
+
   // register user
   const register = async (name, email, phone, password) => {
     const api = await axios.post(
