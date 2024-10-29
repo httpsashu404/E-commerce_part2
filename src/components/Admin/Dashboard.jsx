@@ -36,13 +36,15 @@ function Dashboard() {
                 <b>₹ {filterData?.price}/-</b>
               </p>
               <div className="justify-content-between">
-                <Link to={''}
+                <Link
+                  to={`/editProduct/${filterData._id}`}
                   className="btn btn-sm btn-warning mx-1"
                   style={{ fontWeight: "bold" }}
                 >
                   Edit
                 </Link>
-                <Link to={''}
+                <Link
+                  to={`/deleteProduct/${filterData._id}`}
                   className="btn btn-sm btn-danger mx-1"
                   style={{ fontWeight: "bold" }}
                 >

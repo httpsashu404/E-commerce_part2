@@ -115,12 +115,68 @@ function AppState(props) {
     setAdmin(api.data.admin);
   };
 
-  // All users
-  const allUser = async () => {
-    const api = await axios.get(`${url}/admin/alluser`, {
+  // Add product
+  const addProduct = async (
+    title,
+    description,
+    price,
+    category,
+    qty,
+    imgSrc
+  ) => {
+    const api = await axios.post(
+      `${url}/product/add`,
+      { title, description, price, category, qty, imgSrc },
+      {
+        headers: {
+          "Content-Type": "Application/json",
+          adminAuth: token,
+        },
+        withCredentials: true,
+      }
+    );
+    // console.log("Add Product", api.data.product);
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
+
+  // edit product
+  const editProduct = async () => {
+    const api = await axios.put(`${url}/product/:id`, {
       headers: {
         "Content-Type": "Application/json",
-        // adminAuth: token,
+        adminAuth: token,
+      },
+      withCredentials: true,
+    });
+    // console.log(api);
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
+
+  // All users
+  const allUser = async () => {
+    const api = await axios.get(`${url}/user/allusers`, {
+      headers: {
+        "Content-Type": "Application/json",
       },
       withCredentials: true,
     });
@@ -447,6 +503,8 @@ function AppState(props) {
         shipingAddress,
         userAddress,
         userOrder,
+        addProduct,
+        editProduct,
       }}
     >
       {props.children}

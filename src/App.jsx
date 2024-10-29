@@ -1,11 +1,14 @@
 import ShowProduct from "./components/product/ShowProduct";
 import ProductDetail from "./components/product/ProductDetail";
+import AddProduct from "./components/Admin/AddProduct";
+import EditProduct from "./components/Admin/EditProduct";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Admin from "./components/Admin/Admin";
 import PassForget from "./components/Admin/PassForgt";
 import Dashboard from "./components/Admin/Dashboard";
 import AdminProfile from "./components/Admin/AdminProfile";
+import AllUser from "./components/Admin/AllUser";
 import Register from "./components/user/Register";
 import Login from "./components/user/Login";
 import ForgetPass from "./components/user/ForgetPass";
@@ -29,6 +32,8 @@ function App() {
         <Routes>
           <Route path="/" element={<ShowProduct />}></Route>
           <Route path="/product/:id" element={<ProductDetail />}></Route>
+          <Route path="/addProduct" element={<AddProduct />}></Route>
+          <Route path="/editProduct/:id" element={<EditProduct />}></Route>
           <Route
             path="/product/search/:term"
             element={<SearchProduct />}
@@ -37,6 +42,7 @@ function App() {
           <Route path="/passForget" element={<PassForget />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/adminProfile" element={<AdminProfile />}></Route>
+          <Route path="/allusers" element={<AllUser />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/forgetPass" element={<ForgetPass />}></Route>
