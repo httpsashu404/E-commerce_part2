@@ -5,8 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function AppState(props) {
-  const url = "http://localhost:5000/api";
-  // const url = "https://e-commerce-p0fh.onrender.com/api";
+  // const url = "http://localhost:5000/api";
+  const url = "https://e-commerce-p0fh.onrender.com/api";
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
