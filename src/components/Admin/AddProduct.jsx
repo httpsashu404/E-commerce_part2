@@ -17,8 +17,9 @@ function AddProduct() {
     const { name, value } = e.target;
     setformData({ ...formData, [name]: value });
   };
-
   const { title, description, price, category, qty, imgSrc } = formData;
+  
+  // Add product by admin
   const submitHandler = async (e) => {
     e.preventDefault();
     const result = await addProduct(
@@ -29,8 +30,8 @@ function AddProduct() {
       qty,
       imgSrc
     );
-    if (result.success) {
-      navigate("/");
+    if (result) {
+      navigate("/dashboard");
     }
   };
   return (

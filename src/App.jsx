@@ -2,6 +2,7 @@ import ShowProduct from "./components/product/ShowProduct";
 import ProductDetail from "./components/product/ProductDetail";
 import AddProduct from "./components/Admin/AddProduct";
 import EditProduct from "./components/Admin/EditProduct";
+import AllOrder from "./components/Admin/AllOrder";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Admin from "./components/Admin/Admin";
@@ -43,6 +44,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/adminProfile" element={<AdminProfile />}></Route>
           <Route path="/allusers" element={<AllUser />}></Route>
+          <Route path="/allorders" element={<AllOrder />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/forgetPass" element={<ForgetPass />}></Route>

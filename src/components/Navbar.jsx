@@ -232,9 +232,9 @@ function Navbar() {
                         </Link>
                       </li>
                       <li>
-                        <a className="dropdown-item" href="#">
+                        <Link to={"/allorders"} className="dropdown-item" href="#">
                           All orders
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>

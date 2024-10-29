@@ -1,14 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useContext, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 import AppContext from "../../context/AppContext";
 
 function EditProduct() {
-  const { url, editProduct } = useContext(AppContext);
-  const [product, setProduct] = useState();
+  const { url } = useContext(AppContext);
   const { id } = useParams();
   const navigate = useNavigate();
+  const [product, setProduct] = useState();
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -24,30 +25,30 @@ function EditProduct() {
     getProduct();
   }, [id]);
 
-  const [formData, setformData] = useState({
-    title: "",
-    description: "",
-    price: "",
-    category: "",
-    imgSrc: "",
-  });
-
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
-    setformData({ ...formData, [name]: value });
+    setProduct({ ...product, [name]: value });
   };
 
-  const { title, description, price, category, qty, imgSrc } = formData;
   const submitHandler = async (e) => {
     e.preventDefault();
-    const result = await editProduct(
-      title,
-      description,
-      price,
-      category,
-      qty,
-      imgSrc
-    );
+    const api = await axios.put(`${url}/product/${id}`, product);
+    // console.log("Update Product", api);
+    setReload(!reload);
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+    if (api.data.success) {
+      navigate("/dashboard");
+    }
   };
   return (
     <>
@@ -71,8 +72,6 @@ function EditProduct() {
                 name="title"
                 value={product?.title}
                 onChange={onChangeHandler}
-                required
-                disabled
               />
             </div>
             <div className="mb-3">
@@ -80,11 +79,9 @@ function EditProduct() {
                 type="text"
                 className="form-control"
                 name="description"
-                value={formData?.description}
-                defaultValue={product?.description}
-                onChange={onChangeHandler}
+                value={product?.description}
                 placeholder={product?.description}
-                autoFocus
+                onChange={onChangeHandler}
               />
             </div>
             <div className="mb-3">
@@ -92,19 +89,17 @@ function EditProduct() {
                 type="number"
                 className="form-control"
                 name="price"
-                value={formData.price}
-                defaultValue={product?.price}
-                onChange={onChangeHandler}
+                value={product?.price}
                 placeholder={`₹ ${product?.price}/-`}
+                onChange={onChangeHandler}
               />
             </div>
             <div className="mb-3">
               <select
-                name="category"
                 className="form-select"
-                value={formData.category}
+                name="category"
+                value={product?.category}
                 onChange={onChangeHandler}
-                disabled
               >
                 <option>{product?.category}</option>
                 <option>Mobile</option>
@@ -114,15 +109,14 @@ function EditProduct() {
                 <option>Camera</option>
               </select>
             </div>
-            <div className="mb-3">
+            <div>
               <input
                 type="text"
                 className="form-control"
                 name="imgSrc"
-                value={formData.imgSrc}
-                defaultValue={product?.imgSrc}
-                onChange={onChangeHandler}
+                value={product?.imgSrc}
                 placeholder={product?.imgSrc}
+                onChange={onChangeHandler}
               />
             </div>
             <div className="row justify-content-center py-2">

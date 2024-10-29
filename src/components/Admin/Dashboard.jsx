@@ -1,9 +1,35 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import axios from "axios";
+import { ToastContainer, toast, Bounce } from "react-toastify";
 import AppContext from "../../context/AppContext";
 import { Link } from "react-router-dom";
 
 function Dashboard() {
-  const { filterData } = useContext(AppContext);
+  const { filterData, url, token } = useContext(AppContext);
+  const [reload, setReload] = useState(false)
+
+  // Delete Product by admin
+  const handleDelete = async (id) => {
+    const api = await axios.delete(`${url}/product/${id}`, {
+      headers: {
+        "Content-Type": "Application/json",
+        adminAuth: token,
+      },
+      withCredentials: true,
+    });
+    setReload(!reload);
+    toast.success(api.data.message, {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      transition: Bounce,
+    });
+  };
   return (
     <>
       {filterData?.map((filterData) => (
@@ -43,13 +69,13 @@ function Dashboard() {
                 >
                   Edit
                 </Link>
-                <Link
-                  to={`/deleteProduct/${filterData._id}`}
+                <button
                   className="btn btn-sm btn-danger mx-1"
                   style={{ fontWeight: "bold" }}
+                  onClick={() => handleDelete(filterData._id)}
                 >
                   Delete
-                </Link>
+                </button>
               </div>
             </div>
           </div>

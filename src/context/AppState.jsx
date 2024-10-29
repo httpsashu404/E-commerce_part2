@@ -5,8 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function AppState(props) {
-  // const url = "http://localhost:5000/api";
-  const url = "https://e-commerce-p0fh.onrender.com/api";
+  const url = "http://localhost:5000/api";
+  // const url = "https://e-commerce-p0fh.onrender.com/api";
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
@@ -28,7 +28,6 @@ function AppState(props) {
         withCredentials: true,
       });
       // console.log(api.data.products);
-
       setProducts(api.data.products);
       setfilterData(api.data.products);
       userProfile();
@@ -89,6 +88,7 @@ function AppState(props) {
         withCredentials: true,
       }
     );
+    // console.log("Forget", api);
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -100,6 +100,7 @@ function AppState(props) {
       theme: "dark",
       transition: Bounce,
     });
+    return api.data
   };
 
   // admin profile
@@ -136,6 +137,7 @@ function AppState(props) {
       }
     );
     // console.log("Add Product", api.data.product);
+    setReload(!reload);
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -147,29 +149,7 @@ function AppState(props) {
       theme: "dark",
       transition: Bounce,
     });
-  };
-
-  // edit product
-  const editProduct = async () => {
-    const api = await axios.put(`${url}/product/:id`, {
-      headers: {
-        "Content-Type": "Application/json",
-        adminAuth: token,
-      },
-      withCredentials: true,
-    });
-    // console.log(api);
-    toast.success(api.data.message, {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
+    return api.data.success;
   };
 
   // All users
@@ -180,7 +160,7 @@ function AppState(props) {
       },
       withCredentials: true,
     });
-    console.log("All user : ", api);
+    // console.log("All user : ", api);
     // setAdmin(api.data.admin);
   };
 
@@ -223,7 +203,7 @@ function AppState(props) {
         withCredentials: true,
       }
     );
-    console.log(api.data.message);
+    // console.log(api.data.message);
     toast.success(api.data.message, {
       position: "top-right",
       autoClose: 1500,
@@ -265,6 +245,7 @@ function AppState(props) {
       theme: "dark",
       transition: Bounce,
     });
+    return api.data
   };
 
   // user logout
@@ -490,6 +471,7 @@ function AppState(props) {
         forgetAdminPass,
         url,
         token,
+        reload,
         setisAuthenticated,
         isAuthenticated,
         filterData,
@@ -504,7 +486,6 @@ function AppState(props) {
         userAddress,
         userOrder,
         addProduct,
-        editProduct,
       }}
     >
       {props.children}
