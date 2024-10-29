@@ -1,8 +1,21 @@
-# React + Vite
+# E-commerce Project <br/><br/>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live :** https://zenmartbyashu.netlify.app/ <br/><br/>
+It's complete e-commerce website with admin panel and payment gateway using MERN. It's multifunctional website Like : <br/>
+<ul>
+  <li>Registeration</li>
+  <li>Login</li>  
+  <li>Forget Password</li>
+  <li>Logout</li>
+  <li>Filter by category</li>
+  <li>Filter by price</li>
+  <li>Cart</li>  
+  <li>Increase item</li>
+  <li>Decrease item</li>
+  <li>Payment Gateway</li>
+  <li>Admin panel</li>
+  <li>Etc.</li>
+</ul>
+**Home Page :** <br/><br/>
+<img width="960" alt="ZenMart" src="https://github.com/user-attachments/assets/482398f1-6dc7-4b3c-83a8-ad2d8ef5f335">
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
