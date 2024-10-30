@@ -6,29 +6,44 @@ import { Link } from "react-router-dom";
 
 function Dashboard() {
   const { filterData, url, token } = useContext(AppContext);
-  const [reload, setReload] = useState(false)
+  const [reload, setReload] = useState(false);
 
   // Delete Product by admin
   const handleDelete = async (id) => {
-    const api = await axios.delete(`${url}/product/${id}`, {
-      headers: {
-        "Content-Type": "Application/json",
-        adminAuth: token,
-      },
-      withCredentials: true,
-    });
-    setReload(!reload);
-    toast.success(api.data.message, {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    });
+    const result = confirm("Are your sure delete product");
+    if (result) {
+      const api = await axios.delete(`${url}/product/${id}`, {
+        headers: {
+          "Content-Type": "Application/json",
+          adminAuth: token,
+        },
+        withCredentials: true,
+      });
+      setReload(!reload);
+      toast.success(api.data.message, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
+    } else {
+      toast.warning("Delete request cancelled", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
+    }
   };
   return (
     <>
