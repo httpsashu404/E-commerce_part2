@@ -224,7 +224,7 @@ function Navbar() {
                       </li>
                       <li>
                         <Link
-                          to={"/allusers"}
+                          to={"/alluser"}
                           className="dropdown-item"
                           href="#"
                         >

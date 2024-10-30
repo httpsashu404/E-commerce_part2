@@ -4,7 +4,7 @@ import AppContext from "../../context/AppContext";
 import { Link } from "react-router-dom";
 
 function ShowProduct() {
-  const { products, filterData, addToCart } = useContext(AppContext);
+  const { filterData, addToCart } = useContext(AppContext);
   return (
     <>
       <div className="container showProduct d-flex justify-content-center align-items-center">
@@ -14,7 +14,10 @@ function ShowProduct() {
               key={product._id}
               className="col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center align-items-center"
             >
-              <div className="card text-light mb-2" style={{ backgroundColor: "#294a70" }}>
+              <div
+                className="card text-light mb-2"
+                style={{ backgroundColor: "#294a70" }}
+              >
                 <Link
                   to={`/product/${product._id}`}
                   className="image p-1 d-flex justify-content-center align-items-center"

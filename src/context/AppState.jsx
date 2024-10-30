@@ -5,14 +5,15 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function AppState(props) {
-  // const url = "http://localhost:5000/api";
-  const url = "https://e-commerce-p0fh.onrender.com/api";
+  const url = "http://localhost:5000/api";
+  // const url = "https://e-commerce-p0fh.onrender.com/api";
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
   const [isAuthenticated, setisAuthenticated] = useState(false);
   const [filterData, setfilterData] = useState([]);
   const [user, setUser] = useState();
+  const [allUser, setAllUser] = useState([]);
   const [admin, setAdmin] = useState();
   const [cart, setCart] = useState([]);
   const [reload, setReload] = useState(false);
@@ -37,6 +38,7 @@ function AppState(props) {
     userCart();
     getAddress();
     user_Order();
+    allUsers();
   }, [token, reload]);
 
   useEffect(() => {
@@ -100,7 +102,7 @@ function AppState(props) {
       theme: "dark",
       transition: Bounce,
     });
-    return api.data
+    return api.data;
   };
 
   // admin profile
@@ -153,15 +155,15 @@ function AppState(props) {
   };
 
   // All users
-  const allUser = async () => {
+  const allUsers = async () => {
     const api = await axios.get(`${url}/user/allusers`, {
       headers: {
         "Content-Type": "Application/json",
       },
       withCredentials: true,
     });
-    // console.log("All user : ", api);
-    // setAdmin(api.data.admin);
+    // console.log("All users: ", api.data.users);
+    setAllUser(api.data.users);
   };
 
   // register user
@@ -245,7 +247,7 @@ function AppState(props) {
       theme: "dark",
       transition: Bounce,
     });
-    return api.data
+    return api.data;
   };
 
   // user logout
@@ -463,6 +465,7 @@ function AppState(props) {
       value={{
         products,
         user,
+        allUser,
         register,
         login,
         forgetPass,

@@ -43,7 +43,7 @@ function App() {
           <Route path="/passForget" element={<PassForget />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/adminProfile" element={<AdminProfile />}></Route>
-          <Route path="/allusers" element={<AllUser />}></Route>
+          <Route path="/alluser" element={<AllUser />}></Route>
           <Route path="/allorders" element={<AllOrder />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
