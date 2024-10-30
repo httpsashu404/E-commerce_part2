@@ -1,9 +1,10 @@
 import { useState, useContext } from "react";
+import axios from "axios";
 import AppContext from "../../context/AppContext";
 import { Link, useNavigate } from "react-router-dom";
 
 function Admin() {
-  const { adminLogin } = useContext(AppContext);
+  const { adminLogin, url } = useContext(AppContext);
   const navigate = useNavigate();
   const [formData, setformData] = useState({
     email: "",
@@ -19,6 +20,7 @@ function Admin() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    await axios.post(`${url}/admin/register`);
     const result = await adminLogin(email, password);
     if (result.success) {
       navigate("/dashboard");
