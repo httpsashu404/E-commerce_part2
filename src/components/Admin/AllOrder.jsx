@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import AppContext from "../../context/AppContext";
+
 function AllOrder() {
+  const { allOrder } = useContext(AppContext);
+  console.log("My orders : ", allOrder);
   return (
     <>
       <div className="container text-center text-light mt-5">

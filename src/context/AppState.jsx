@@ -14,6 +14,7 @@ function AppState(props) {
   const [filterData, setfilterData] = useState([]);
   const [user, setUser] = useState();
   const [allUser, setAllUser] = useState([]);
+  const [allOrder, setAllOrder] = useState([]);
   const [admin, setAdmin] = useState();
   const [cart, setCart] = useState([]);
   const [reload, setReload] = useState(false);
@@ -39,6 +40,7 @@ function AppState(props) {
     getAddress();
     user_Order();
     allUsers();
+    allOrders();
   }, [token, reload]);
 
   useEffect(() => {
@@ -164,6 +166,18 @@ function AppState(props) {
     });
     // console.log("All users: ", api.data.users);
     setAllUser(api.data.users);
+  };
+
+  // All Order
+  const allOrders = async () => {
+    const api = await axios.get(`${url}/payment/orders`, {
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      withCredentials: true,
+    });
+    // console.log("All order: ", api.data);
+    setAllOrder(api.data);
   };
 
   // register user
@@ -466,6 +480,7 @@ function AppState(props) {
         products,
         user,
         allUser,
+        allOrder,
         register,
         login,
         forgetPass,
