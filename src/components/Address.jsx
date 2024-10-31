@@ -79,8 +79,8 @@ function Address() {
                 <input
                   type="text"
                   className="form-control"
-                  id="country"
-                  name="country"
+                  id="city"
+                  name="city"
                   value={formData.city}
                   onChange={onChangeHandler}
                   placeholder="Your city name"
@@ -105,8 +105,8 @@ function Address() {
                 <input
                   type="text"
                   className="form-control"
-                  id="city"
-                  name="city"
+                  id="country"
+                  name="country"
                   value={formData.country}
                   onChange={onChangeHandler}
                   placeholder="Your country name"
