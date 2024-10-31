@@ -10,21 +10,21 @@ function Profile() {
         <div className="row align-items-center">
           <h2 className="text-light">Welcome, Administrator Ji</h2>
           <hr />
-          <h5 className="text-info">
+          <h6 className="text-info">
             <b>Name : </b>
             {admin?.name}
-          </h5>
-          <h5 className="text-info">
+          </h6>
+          <h6 className="text-info">
             <b>Mo : </b>
             {admin?.phone}
-          </h5>
-          <h5 className="text-info">
+          </h6>
+          <h6 className="text-info">
             <b>E-mail : </b>
             {admin?.email}
-          </h5>
-          <h5 className="text-info">
+          </h6>
+          <h6 className="text-info">
             <b>Id</b> : {admin?._id}
-          </h5>
+          </h6>
         </div>
       </div>
     </>

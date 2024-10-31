@@ -81,9 +81,9 @@ function Address() {
                   className="form-control"
                   id="country"
                   name="country"
-                  value={formData.country}
+                  value={formData.city}
                   onChange={onChangeHandler}
-                  placeholder="Your country name"
+                  placeholder="Your city name"
                   required
                 />
               </div>
@@ -107,9 +107,9 @@ function Address() {
                   className="form-control"
                   id="city"
                   name="city"
-                  value={formData.city}
+                  value={formData.country}
                   onChange={onChangeHandler}
-                  placeholder="Your city name"
+                  placeholder="Your country name"
                   required
                 />
               </div>

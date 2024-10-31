@@ -13,5 +13,7 @@ table, th, td, tr{
     vertical-align: middle;
 }
 td{
+    padding: 2px 5px 2px 5px;
     vertical-align: middle;
+    border: 1px solid silver;
 }
