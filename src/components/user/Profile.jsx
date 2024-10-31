@@ -2,7 +2,7 @@ import { useContext } from "react";
 import AppContext from "../../context/AppContext";
 
 function Profile() {
-  const { user, userOrder } = useContext(AppContext);
+  const { user } = useContext(AppContext);
 
   return (
     <>
@@ -10,11 +10,17 @@ function Profile() {
         <div className="row align-items-center">
           <h2 className="text-light">Welcome, {user?.name}</h2>
           <hr />
-          <h5 className="text-info"><b>Mo : </b>{user?.phone}</h5>
-          <h5 className="text-info"><b>E-mail : </b>{user?.email}</h5>
-          <h5 className="text-info">
+          <h6 className="text-info">
+            <b>Mo : </b>
+            {user?.phone}
+          </h6>
+          <h6 className="text-info">
+            <b>E-mail : </b>
+            {user?.email}
+          </h6>
+          <h6 className="text-info">
             <b>Id</b> : {user?._id}
-          </h5>
+          </h6>
         </div>
 
         {/* Table order progress continue.. */}
