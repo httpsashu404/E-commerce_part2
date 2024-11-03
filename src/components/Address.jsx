@@ -26,9 +26,9 @@ function Address() {
     e.preventDefault();
     const result = await shipingAddress(
       fullName,
-      country,
-      state,
       city,
+      state,
+      country,
       pincode,
       phoneNumber,
       address
