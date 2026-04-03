@@ -29,7 +29,6 @@ function OderConfirmation() {
                 <ShowOrderProduct items={latestOrder?.orderItems} />
               </td>
               <td>
-                <hr />
                 <ul style={{ textAlign: "left" }}>
                   <li>
                     <b>Order-Id : </b>

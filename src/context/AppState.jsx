@@ -6,7 +6,7 @@ import axios from "axios";
 
 function AppState(props) {
   // const url = "http://localhost:5000/api";
-  const url = "https://e-commerce-p0fh.onrender.com/api";
+  const url = "e-commerce-p6qxau7i3-httpsashu404s-projects.vercel.app"
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
@@ -61,7 +61,7 @@ function AppState(props) {
           "Content-Type": "Application/json",
         },
         withCredentials: true,
-      }
+      },
     );
     toast.success(api.data.message, {
       position: "top-right",
@@ -90,7 +90,7 @@ function AppState(props) {
           "Content-Type": "Application/json",
         },
         withCredentials: true,
-      }
+      },
     );
     // console.log("Forget", api);
     toast.success(api.data.message, {
@@ -127,7 +127,7 @@ function AppState(props) {
     price,
     category,
     qty,
-    imgSrc
+    imgSrc,
   ) => {
     const api = await axios.post(
       `${url}/product/add`,
@@ -138,7 +138,7 @@ function AppState(props) {
           adminAuth: token,
         },
         withCredentials: true,
-      }
+      },
     );
     // console.log("Add Product", api.data.product);
     setReload(!reload);
@@ -190,7 +190,7 @@ function AppState(props) {
           "Content-Type": "Application/json",
         },
         withCredentials: true,
-      }
+      },
     );
     // console.log(api.data.message)
     toast.success(api.data.message, {
@@ -217,7 +217,7 @@ function AppState(props) {
           "Content-Type": "Application/json",
         },
         withCredentials: true,
-      }
+      },
     );
     // console.log(api.data.message);
     toast.success(api.data.message, {
@@ -247,7 +247,7 @@ function AppState(props) {
           "Content-Type": "Application/json",
         },
         withCredentials: true,
-      }
+      },
     );
     // console.log(api.data)
     toast.success(api.data.message, {
@@ -306,7 +306,7 @@ function AppState(props) {
           auth: token,
         },
         withCredentials: true,
-      }
+      },
     );
     setReload(!reload);
     // console.log(api.data.message)
@@ -347,7 +347,7 @@ function AppState(props) {
           auth: token,
         },
         withCredentials: true,
-      }
+      },
     );
     setReload(!reload);
     // console.log(api.data.message)
@@ -420,7 +420,7 @@ function AppState(props) {
     country,
     pincode,
     phoneNumber,
-    address
+    address,
   ) => {
     const api = await axios.post(
       `${url}/address/add`,
@@ -431,7 +431,7 @@ function AppState(props) {
           auth: token,
         },
         withCredentials: true,
-      }
+      },
     );
     setReload(!reload);
     // console.log("Address : ", api.data.message);

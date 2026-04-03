@@ -47,8 +47,8 @@ function forgetPass() {
                 value={formData.user}
                 onChange={onChangeHandler}
                 placeholder="Your email address"
-                required
                 autoFocus
+                required
               />
             </div>
             <div className="mb-3">
