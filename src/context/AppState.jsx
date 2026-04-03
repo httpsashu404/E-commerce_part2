@@ -6,7 +6,7 @@ import axios from "axios";
 
 function AppState(props) {
   // const url = "http://localhost:5000/api";
-  const url = "e-commerce-p6qxau7i3-httpsashu404s-projects.vercel.app"
+  const url = "https://e-commerce-uxf0.onrender.com"
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
