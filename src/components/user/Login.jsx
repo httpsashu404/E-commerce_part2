@@ -41,12 +41,12 @@ function Login() {
             </legend>
             <div className="mb-3">
               <input
-                type="email"
+                type="text"
                 className="form-control"
                 name="email"
                 value={formData.email}
                 onChange={onChangeHandler}
-                placeholder="Your email address"
+                placeholder="Enter email or phone"
                 required
                 autoFocus
               />

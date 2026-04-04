@@ -20,7 +20,7 @@ function Admin() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await axios.post(`${url}/admin/register`);
+    await axios.post(`${url}/admin/login`);
     const result = await adminLogin(email, password);
     if (result.success) {
       navigate("/dashboard");
@@ -43,12 +43,12 @@ function Admin() {
             </legend>
             <div className="mb-3">
               <input
-                type="email"
+                type="text"
                 className="form-control"
                 name="email"
                 value={formData.email}
                 onChange={onChangeHandler}
-                placeholder="Your email address"
+                placeholder="Enter email or phone"
                 required
                 autoFocus
               />

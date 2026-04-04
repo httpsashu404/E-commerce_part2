@@ -8,7 +8,7 @@ function Profile() {
     <>
       <div className="container text-light text-center my-5">
         <div className="row align-items-center">
-          <h2 className="text-light">Welcome, Administrator Ji</h2>
+          <h2 className="text-light">Welcome, Admin Ji</h2>
           <hr />
           <h6 className="text-info">
             <b>Name : </b>

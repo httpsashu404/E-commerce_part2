@@ -5,8 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 function AppState(props) {
-  // const url = "http://localhost:5000/api";
-  const url = "https://vercel.com/httpsashu3000-5052s-projects/e-commerce/CLj7Ho5KeUJLAeGzgZ7TwnBE5krb"
+  const url = "http://localhost:5000/api";
+  // const url = "https://vercel.com/httpsashu3000-5052s-projects/e-commerce/CLj7Ho5KeUJLAeGzgZ7TwnBE5krb"
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
