@@ -6,7 +6,7 @@ import axios from "axios";
 
 function AppState(props) {
   // const url = "http://localhost:5000/api";
-  const url = "https://e-commerce-ozjb.onrender.com"
+  const url = "https://e-commerce-ozjb.onrender.com/api";
 
   const [products, setProducts] = useState([]);
   const [token, settoken] = useState([]);
